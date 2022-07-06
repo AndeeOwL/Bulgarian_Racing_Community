@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="/fragments/commons::headx"></head>
+
+<body>
+<header th:replace="/fragments/commons::nav"> </header>
+
+<div class="jumbotron">
+ <h1 class="display-4">Welcome to the bulgarian racing community</h1>
+ <p class="lead">My name is Andrean Buhchev and I made this web application to gather all the automotive maniacs
+ in our country</p>
+ <hr class="my-4">
+ <p>If you think this is your place</p>
+ <a class="btn btn-primary btn-lg" th:href="@{/users/login}" role="button">LOGIN</a>
+ <a class="btn btn-primary btn-lg" th:href="@{/users/register}" role="button">REGISTER</a>
+</div>
+
+
+</body>
+</html>
