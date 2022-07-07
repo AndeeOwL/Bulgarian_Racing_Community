@@ -39,7 +39,7 @@
                 <!-- Left links -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 " >
                     <li class="nav-item" sec:authorize="hasRole('ADMIN')">
-                        <a class="nav-link active" aria-current="page" th:href="@{/admin-home}">Home</a>
+                        <a class="nav-link active" aria-current="page" th:href="@{/admin-home}">Admin</a>
                     </li>
                     <li class="nav-item" sec:authorize="isAuthenticated()">
                         <a class="nav-link active" aria-current="page" th:href="@{/home}">Home</a>
@@ -54,7 +54,7 @@
                         <a class="nav-link" th:href="@{/events}">Events</a>
                     </li>
                     <li class="nav-item" sec:authorize="isAuthenticated()">
-                        <a class="nav-link" th:href="@{/products}">Products</a>
+                        <a class="nav-link" th:href="@{/products}">Marketplace</a>
                     </li>
                     <li class="nav-item" sec:authorize="!isAuthenticated()">
                         <a class="nav-link" th:href="@{/users/login}">Login</a>
@@ -72,7 +72,6 @@
                         <div class="form-inline my-2 my-lg-0 px-3">
                             <div class="text-white" >Welcome, <th:block th:text="${#authentication.principal.fullName}">X</th:block>!</div>
                             <form th:action="@{/users/logout}" th:method="post">
-
                                 <input class="btn btn-link nav-link" type="submit" value="Logout">
                             </form>
                         </div>
@@ -85,7 +84,7 @@
         <!-- Container wrapper -->
     </nav>
 </header>
-<footer>
+<footer th:fragment="footerx">
     this is footer
 </footer>
 </html>
