@@ -6,6 +6,28 @@
 <body>
 <header th:replace="/fragments/commons::nav"></header>
 
-this is article
+<h1 class="articles-h1"> HERE ARE ALL OF THE ARTICLES </h1>
+
+    <div class="card" style="width: 50rem;">
+        <div class="card-body">
+            <h3 class="card-title">My Car is very fast</h3>
+            <div class="article-user"><a href=""> Andrean Buhchev </a></div>
+            <hr>
+            <p class="card-text"> My car is fastest in man just believe it! </p>
+            <hr>
+            <h3 class="comments-h3"> Comments </h3>
+            <hr>
+            <div class="comment-user"><a href=""> Sekul Yordanov </a></div>
+            <h7 class="comment"> No way man my 1.8T will smoke you </h7>
+            <hr>
+            <a th:href="@{/comments/add}" class="btn btn-primary">Add Comment</a>
+            <a th:href="@{/comments/delete}" class="btn btn-danger">Delete Comment</a>
+            <hr>
+            <a th:href="@{/articles/add}" class="btn btn-primary">Add Article</a>
+        </div>
+    </div>
+
+
 </body>
+<footer th:replace="/fragments/commons::footerx"></footer>
 </html>

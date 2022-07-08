@@ -36,3 +36,143 @@ form.main-form {
 .logged-user {
     color: white;
 }
+
+.button-holder {
+    margin-top: 10px;
+
+}
+.jumbotron {
+    margin-top: 40px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 250px;
+    background-color: #1b252e;
+    backface-visibility: hidden;
+    color: white;
+    border-style: dashed;
+}
+
+.display-4 {
+    text-align: center;
+}
+
+.lead {
+    text-align: center;
+}
+
+.jbp {
+    text-align: center;
+}
+
+.jumbo-buttons {
+    margin-left: 450px;
+    margin-bottom: 25px;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.carousel {
+
+    margin-left: 250px;
+    margin-right: 250px;
+    margin-bottom: 300px;
+}
+
+.carousel-item {
+    size: portrait;
+}
+
+.head1 {
+    background-color: #1b252e;
+    margin-top: 50px;
+    margin-left: 250px;
+    margin-right: 250px;
+    color: white;
+    text-align: center;
+}
+
+.article {
+    background-color: #1b252e;
+    color: white;
+    margin-left: 250px;
+    margin-right: 250px;
+    text-align: center;
+    padding-bottom: 25px;
+    padding-top: 25px;
+
+}
+.article-header {
+    text-decoration: underline;
+}
+
+.articles-h1 {
+    background-color: #1b252e;
+    margin-top: 50px;
+    margin-left: 250px;
+    margin-right: 250px;
+    color: white;
+    text-align: center;
+}
+
+.comments {
+    margin-bottom: 50px;
+}
+
+.card {
+    background-color: #1b252e;
+    color: white;
+    margin-top: 50px;
+    margin-left: 400px;
+    margin-bottom: 50px;
+}
+
+.cars-h1 {
+    background-color: #1b252e;
+    margin-top: 50px;
+    margin-left: 250px;
+    margin-right: 250px;
+    color: white;
+    text-align: center;
+}
+
+.events-h1 {
+    background-color: #1b252e;
+    margin-top: 50px;
+    margin-left: 250px;
+    margin-right: 250px;
+    color: white;
+    text-align: center;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.article-user {
+    text-align: center;
+}
+
+.comments-h3 {
+    text-align: center;
+}
+
+.mechanic {
+    margin-top: 250px;
+    margin-left: 250px;
+    margin-bottom: 100px;
+}
+
+.bubble {
+    margin-top: -400px;
+}
+
+.index-btn {
+    margin-left: 840px;
+    margin-top: -530px;
+}
+
+.footer {
+    margin-top: 400px;
+}

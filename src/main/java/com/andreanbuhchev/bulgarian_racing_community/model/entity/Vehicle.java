@@ -28,6 +28,7 @@ public class Vehicle extends BaseEntity {
     @Column(nullable = false)
     private int engineSize;
 
+    @Column(nullable = false)
     private int nm;
 
     @Enumerated(EnumType.STRING)
@@ -48,7 +49,7 @@ public class Vehicle extends BaseEntity {
     private float zeroToHundred;
 
     @Column(name = "top_speed")
-    private float topSpeed;
+    private int topSpeed;
 
     @Column(columnDefinition = "TEXT")
     private String description;
@@ -154,7 +155,7 @@ public class Vehicle extends BaseEntity {
         return topSpeed;
     }
 
-    public void setTopSpeed(float topSpeed) {
+    public void setTopSpeed(int topSpeed) {
         this.topSpeed = topSpeed;
     }
 

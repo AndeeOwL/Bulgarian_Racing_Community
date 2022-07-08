@@ -4,5 +4,32 @@
 <head th:replace="/fragments/commons::headx"></head>
 <body>
 <header th:replace="/fragments/commons::nav"></header>
+
+<h1 class="cars-h1"> HERE ARE ALL OF THE VEHICLES </h1>
+
+<div class="card" style="width: 40rem;">
+    <h5 class="car-user"> Andrean Buhchev </h5>
+    <img class="card-img-top" th:src="@{/images/1-BMW-3-Series.jpg}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="car-brand">BRAND: Bmw</h5>
+        <h5 class="car-model">MODEL: E46 330D</h5>
+        <h5 class="car-YOP">YEAR OF PRODUCTION: 2002</h5>
+        <h5 class="car-HP">HP: 245</h5>
+        <h5 class="car-ES">Engine Displacement cc: 3000</h5>
+        <h5 class="car-NM">Torque NM: 600</h5>
+        <h5 class="car-ET">Engine type: DIESEL </h5>
+        <h5 class="car-VT">Vehicle type: CAR </h5>
+        <h5 class="car-QMS">1/4 mile: 13.3</h5>
+        <h5 class="car-MS">1 mile: 40.0 </h5>
+        <h5 class="car-ZH">0-100: 5.5</h5>
+        <h5 class="car-TS">Top speed: 270</h5>
+        <p class="card-text"> Description: My bmw is e46 330d 245 hp </p>
+        <a th:href="@{/users/add-vehicle}" class="btn btn-primary">Add Vehicle</a>
+        <a th:href="@{/comments/delete}" class="btn btn-danger">Delete Vehicle</a>
+    </div>
+</div>
+
 </body>
+
+<footer th:replace="/fragments/commons::footerx"></footer>
 </html>

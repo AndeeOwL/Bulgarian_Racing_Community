@@ -13,7 +13,7 @@ spring:
         enabled: 'true'
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    password: 'Metalgearsolid95a'
+    password: 'password'
     username: 'root'
     url: jdbc:mysql://localhost:3306/bulgarian_racing_comunity?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
 logging:

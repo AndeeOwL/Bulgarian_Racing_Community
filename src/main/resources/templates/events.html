@@ -4,6 +4,25 @@
 <head th:replace="/fragments/commons::headx"></head>
 <body>
 <header th:replace="/fragments/commons::nav"></header>
+
+<h1 class="events-h1"> UPCOMING EVENTS </h1>
+
+<div class="card" style="width: 50rem;">
+    <div class="card-body">
+        <h3 class="card-title"> BMW FESTIVAL 2022 </h3>
+        <div class="article-user"><a href=""> Andrean Buhchev </a></div>
+        <hr>
+        <h5 class="event-location">Location: LETISHTE STARA ZAGORA </h5>
+        <h5 class="event-time">When: 10.10.22 </h5>
+        <h5 class="event-price">Price lv: 10 </h5>
+        <p class="event-description">Description: THE BEST BMW FESTIVAL FOR ALL MANIACS </p>
+        <a th:href="@{/shopping-cart/add}" class="btn btn-primary">Buy Tickets</a>
+        <hr>
+        <a th:href="@{/comments/add}" class="btn btn-primary">Add New Event</a>
+        <a th:href="@{/comments/delete}" class="btn btn-danger">Delete Event</a>
+    </div>
+</div>
+
 </body>
 
 <footer th:replace="/fragments/commons::footerx">
