@@ -33,7 +33,7 @@ public class AppUserDetailsService implements UserDetailsService {
 
             return new AppUserDetails (
                     userEntity.getPassword(),
-                    userEntity.getEmail(),
+                    userEntity.getUsername(),
                     userEntity.getFirstName(),
                     userEntity.getLastName(),
                     userEntity.

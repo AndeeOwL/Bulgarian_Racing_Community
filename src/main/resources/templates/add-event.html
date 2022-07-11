@@ -4,12 +4,13 @@
 <head th:replace="/fragments/commons::headx"></head>
 <body>
 <header th:replace="/fragments/commons::nav"></header>
-
 <div class="container">
-    <h2 class="text-center text-white">Add Product</h2>
-    <form  th:action="@{/products/add}"
+
+
+    <h2 class="text-center text-white">Add Event</h2>
+    <form  th:action="@{/events/add}"
            th:method="post"
-           th:object="${addProductModel}"
+           th:object="${addEventModel}"
            class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
         <div class="row">
             <div class="form-group col-md-6 mb-3">
@@ -26,15 +27,15 @@
                 </p>
             </div>
             <div class="form-group col-md-6 mb-3">
-                <label for="price" class="text-white font-weight-bold">Price</label>
-                <input id="price"
-                       th:field="*{price}"
+                <label for="location" class="text-white font-weight-bold">Location</label>
+                <input id="location"
+                       th:field="*{location}"
                        th:errorclass="is-invalid"
-                       type="number"
+                       type="text"
                        class="form-control"
-                       placeholder="Price"/>
+                       placeholder="Location"/>
                 <p class="invalid-feedback errors alert alert-danger">
-                    Price is required.
+                    Location is required.
                 </p>
             </div>
         </div>
@@ -53,28 +54,39 @@
 
             <div class="row">
                 <div class="form-group col-md-12 mb-3">
-                    <label for="photo" class="text-white font-weight-bold">Photo</label>
-                    <input id="photo"
-                           th:field="*{photo}"
+                    <label for="time" class="text-white font-weight-bold">Time</label>
+                    <input id="time"
+                           th:field="*{time}"
                            th:errorclass="is-invalid"
-                           type="text"
+                           type="datetime-local"
                            class="form-control"
-                           placeholder="Photo"/>
+                           placeholder="Time"/>
                     <div class="invalid-feedback errors alert alert-danger">
-                        Photo is required.
+                        Time is required.
                     </div>
+                </div>
+                <div class="form-group col-md-12 mb-3">
+                    <label for="price" class="text-white font-weight-bold">Price</label>
+                    <input id="price"
+                           th:field="*{price}"
+                           th:errorclass="is-invalid"
+                           type="number"
+                           class="form-control"
+                           placeholder="Price"/>
+                    <p class="invalid-feedback errors alert alert-danger">
+                        Price is required.
+                    </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col col-md-4">
                     <div class="button-holder d-flex">
-                        <input type="submit" class="btn btn-info btn-lg" value="Add Product"/>
+                        <input type="submit" class="btn btn-info btn-lg" value="Add Event"/>
                     </div>
                 </div>
             </div>
     </form>
 </div>
-
 
 </body>
 <footer th:replace="/fragments/commons::footerx"></footer>

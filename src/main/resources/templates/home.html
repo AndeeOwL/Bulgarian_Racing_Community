@@ -15,24 +15,24 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img th:src="@{/images/1-BMW-3-Series.jpg}" class="d-block w-100" alt="...">
+            <img th:src="${First.photo}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
+                <h5 th:text="${First.userEntity.username}">First slide label</h5>
+                <p th:text="${First.model}">Some representative placeholder content for the first slide.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img th:src="@{/images/bmw-4-series-coupe-m-automobiles-hometeaser-1680x756.jpg.asset.1600713857668.jpg}" class="d-block w-100" alt="...">
+            <img th:src="${Second.photo}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
+                <h5 th:text="${Second.userEntity.username}">Second slide label</h5>
+                <p th:text="${First.model}">Some representative placeholder content for the second slide.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img th:src="@{/images/bmw-individual-uxn.jpg}" class="d-block w-100" alt="...">
+            <img th:src="${Third.photo}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
+                <h5 th:text="${Third.userEntity.username}">Third slide label</h5>
+                <p th:text="${Third.model}">Some representative placeholder content for the third slide.</p>
             </div>
         </div>
     </div>

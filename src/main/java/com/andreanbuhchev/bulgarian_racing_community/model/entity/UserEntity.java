@@ -136,4 +136,16 @@ public class UserEntity extends BaseEntity {
     public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public String fullName() {
+        return firstName + " " + lastName;
+    }
 }

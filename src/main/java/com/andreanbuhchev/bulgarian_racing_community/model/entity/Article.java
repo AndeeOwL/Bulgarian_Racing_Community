@@ -14,6 +14,9 @@ public class Article extends BaseEntity {
     @ManyToOne
     private UserEntity userEntity;
 
+    @Column(nullable = false)
+    private String title;
+
     private String text;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "article")
@@ -44,5 +47,13 @@ public class Article extends BaseEntity {
     }
 
     public Article() {
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

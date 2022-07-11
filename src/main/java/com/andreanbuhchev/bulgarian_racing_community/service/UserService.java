@@ -5,6 +5,7 @@ import com.andreanbuhchev.bulgarian_racing_community.model.entity.UserEntity;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.UserRoleEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
@@ -16,5 +17,4 @@ public interface UserService {
     void registerAndLogin(UserRegisterDto userRegisterDto);
 
     void login(UserEntity userEntity);
-
 }

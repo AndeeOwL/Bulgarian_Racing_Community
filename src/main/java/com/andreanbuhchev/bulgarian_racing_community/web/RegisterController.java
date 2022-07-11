@@ -45,7 +45,7 @@ public class RegisterController {
         }
         this.userService.registerAndLogin(userModel);
 
-        return "redirect:/";
+        return "redirect:/home";
     }
 }
 

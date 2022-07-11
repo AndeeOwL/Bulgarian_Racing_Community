@@ -4,6 +4,36 @@
 <head th:replace="/fragments/commons::headx"></head>
 <body>
 <header th:replace="/fragments/commons::nav"></header>
+
+<h1 class="cars-h1"> Shopping Cart </h1>
+
+<div class="card" style="width: 40rem;">
+    <img class="card-img-top" th:src="@{/images/1-BMW-3-Series.jpg}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="product-seller">Seller: Andrean Buhchev </h5>
+        <h5 class="product-name">Product: BMW E46 </h5>
+        <h5 class="product-price">Price lv: 6000 </h5>
+        <p class="card-text"> Description: My bmw is e46 330d 245 hp </p>
+        <a th:href="@{/shopping-cart/add}" class="btn btn-primary">Buy Product</a>
+        <hr>
+        <a th:href="@{/products/add}" class="btn btn-primary">Add New Product</a>
+        <a th:href="@{/products/delete}" class="btn btn-danger">Delete Product</a>
+    </div>
+</div>
+
+<div class="card" style="width: 40rem;">
+    <img class="card-img-top" th:src="@{/images/1-BMW-3-Series.jpg}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="product-seller">Seller: Andrean Buhchev </h5>
+        <h5 class="product-name">Product: BMW E46 </h5>
+        <h5 class="product-price">Price lv: 6000 </h5>
+        <p class="card-text"> Description: My bmw is e46 330d 245 hp </p>
+        <a th:href="@{/shopping-cart/add}" class="btn btn-primary">Buy Product</a>
+        <hr>
+        <a th:href="@{/products/add}" class="btn btn-primary">Add New Product</a>
+        <a th:href="@{/products/delete}" class="btn btn-danger">Delete Product</a>
+    </div>
+</div>
 </body>
 
 <footer th:replace="/fragments/commons::footerx"></footer>

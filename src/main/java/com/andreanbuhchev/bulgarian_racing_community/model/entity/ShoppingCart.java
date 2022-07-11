@@ -13,6 +13,9 @@ public class ShoppingCart extends BaseEntity {
     @ManyToMany
     private List<Product> product;
 
+    @ManyToMany
+    private List<Event> events;
+
     public ShoppingCart() {
     }
 
@@ -30,5 +33,13 @@ public class ShoppingCart extends BaseEntity {
 
     public void setProduct(List<Product> product) {
         this.product = product;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 }

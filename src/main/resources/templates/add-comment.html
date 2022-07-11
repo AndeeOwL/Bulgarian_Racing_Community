@@ -3,6 +3,39 @@
       xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/fragments/commons::headx"></head>
 <body>
+<header th:replace="/fragments/commons::nav"></header>
+
+<div class="container">
+    <h2 class="text-center text-white">Add Comment</h2>
+    <form  th:action="@{/comments/add}"
+           th:method="post"
+           th:object="${addCommentModel}"
+           class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
+        <div class="row">
+            <div class="form-group col-md-6 mb-3">
+                <label for="comment" class="text-white font-weight-bold">Comment</label>
+                <input
+                        id="comment"
+                        th:field="*{comment}"
+                        th:errorclass="is-invalid"
+                        type="text"
+                        class="form-control"
+                        placeholder="Comment"/>
+                <p class="invalid-feedback errors alert alert-danger">
+                    Comments must not be empty.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-4">
+                <div class="button-holder d-flex">
+                    <input type="submit" class="btn btn-info btn-lg" value="Add Comment"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
 </body>
 <footer th:replace="/fragments/commons::footerx"></footer>
 </html>
