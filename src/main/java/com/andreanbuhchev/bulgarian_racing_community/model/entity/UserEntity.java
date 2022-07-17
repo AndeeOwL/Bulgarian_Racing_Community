@@ -127,4 +127,5 @@ public class UserEntity extends BaseEntity {
     public String fullName() {
         return firstName + " " + lastName;
     }
+
 }

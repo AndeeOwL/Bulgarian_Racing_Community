@@ -26,7 +26,7 @@ public class SecurityConfig {
                 usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY).
                 passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY).
                 defaultSuccessUrl("/home").
-                failureForwardUrl("/users/login-error").
+                failureForwardUrl("/users/login").
                 and().
                 logout().
                 logoutUrl("/users/logout").

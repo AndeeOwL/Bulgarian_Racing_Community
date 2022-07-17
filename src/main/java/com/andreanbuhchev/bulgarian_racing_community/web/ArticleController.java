@@ -60,7 +60,7 @@ public class ArticleController {
             redirectAttributes.addFlashAttribute("addArticleModel", addArticleModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addArticleModel",
                     bindingResult);
-            return "redirect:/add-article";
+            return "redirect:/articles/add";
         }
 
         articleService.addArticle(addArticleModel, userDetails);
@@ -69,9 +69,9 @@ public class ArticleController {
     }
 
 
-    @PostMapping("/{id}/delete")
-    public void deleteArticle(@PathVariable Long id){
-        articleService.deleteArticle(id);
+    @PostMapping("/delete")
+    public void deleteArticle(){
+        //TODO learn how to delete specific item
     }
 
 

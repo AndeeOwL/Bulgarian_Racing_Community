@@ -12,7 +12,6 @@ body {
 
 .navbar .logo {
     max-height: 50px;
-    padding-right: 100px;
 }
 
 .brand-section {
@@ -41,43 +40,16 @@ form.main-form {
     margin-top: 10px;
 
 }
-.jumbotron {
-    margin-top: 40px;
-    margin-left: 200px;
-    margin-right: 200px;
-    margin-bottom: 250px;
-    background-color: #1b252e;
-    backface-visibility: hidden;
-    color: white;
-    border-style: dashed;
-}
-
-.display-4 {
-    text-align: center;
-}
-
-.lead {
-    text-align: center;
-}
-
-.jbp {
-    text-align: center;
-}
-
-.jumbo-buttons {
-    margin-left: 450px;
-    margin-bottom: 25px;
-}
 
 .container {
-    margin-top: 50px;
+    margin-top: 5%;
 }
 
 .carousel {
 
-    margin-left: 250px;
-    margin-right: 250px;
-    margin-bottom: 300px;
+    margin-left: 20%;
+    margin-right: 20%;
+
 }
 
 .carousel-item {
@@ -86,9 +58,9 @@ form.main-form {
 
 .head1 {
     background-color: #1b252e;
-    margin-top: 50px;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
     color: white;
     text-align: center;
 }
@@ -96,11 +68,11 @@ form.main-form {
 .article {
     background-color: #1b252e;
     color: white;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-left: 25%;
+    margin-right: 25%;
     text-align: center;
-    padding-bottom: 25px;
-    padding-top: 25px;
+    padding-bottom: 25%;
+    padding-top: 25%;
 
 }
 .article-header {
@@ -109,39 +81,40 @@ form.main-form {
 
 .articles-h1 {
     background-color: #1b252e;
-    margin-top: 50px;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
     color: white;
     text-align: center;
 }
 
 .comments {
-    margin-bottom: 50px;
+    margin-bottom: 5%;
 }
 
 .card {
     background-color: #1b252e;
     color: white;
-    margin-top: 50px;
-    margin-left: 400px;
-    margin-bottom: 50px;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 5%;
 }
 
 .cars-h1 {
     background-color: #1b252e;
-    margin-top: 50px;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
     color: white;
     text-align: center;
 }
 
 .events-h1 {
     background-color: #1b252e;
-    margin-top: 50px;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
     color: white;
     text-align: center;
 }
@@ -159,24 +132,32 @@ form.main-form {
 }
 
 .mechanic {
-    margin-top: 250px;
-    margin-left: 250px;
-    margin-bottom: 100px;
+    margin-top: 25%;
+    margin-left: 25%;
+    margin-bottom: 10%;
 }
 
 .bubble {
-    margin-top: -400px;
+    margin-top: -40%;
 }
 
+
+
 .index-btn {
-    margin-left: 840px;
-    margin-top: -530px;
+    margin-left: 84%;
+    margin-top: -53%;
 }
 
 .footer {
-    margin-top: 400px;
+    margin-top: 40%;
 }
 
 .p-5 {
+
     color: white;
+}
+
+.navbar-toggle {
+    color: white;
+    background-color: #1b252e;
 }

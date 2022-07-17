@@ -39,9 +39,9 @@ public class ProductsController {
         return "products";
     }
 
-    @GetMapping("/{id}/buy")
-    public void buyProducts(@PathVariable Long id, @AuthenticationPrincipal UserDetails userDetails){
-        productService.buyProduct(id,userDetails);
+    @GetMapping("/buy")
+    public void buyProducts(){
+       //TODO ADD TO SHOPPING CART specific item
     }
 
     @GetMapping("/add")
@@ -63,7 +63,7 @@ public class ProductsController {
             redirectAttributes.addFlashAttribute("addProductModel", addProductModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addProductModel",
                     bindingResult);
-            return "redirect:/add-product";
+            return "redirect:/products/add";
         }
 
         productService.addProduct(addProductModel, userDetails);
@@ -71,9 +71,9 @@ public class ProductsController {
         return "redirect:/products";
     }
 
-    @PostMapping("/{id}/delete")
-    public void deleteProduct(@PathVariable Long id){
-        productService.deleteProduct(id);
+    @PostMapping("/delete")
+    public void deleteProduct(){
+        //TODO Delete specific product
     }
 
 }

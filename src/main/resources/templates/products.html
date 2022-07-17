@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="/fragments/commons::headx"></head>
 <body>
 <header th:replace="/fragments/commons::nav"></header>
@@ -16,7 +16,8 @@
                 <p class="card-text" th:text="|Description: ${product.description}|"> Description: My bmw is e46 330d 245 hp </p>
                  <a th:href="@{/shopping-cart/add}" class="btn btn-primary">Add to cart</a>
                  <hr>
-                    <a th:href="@{/products/delete}" class="btn btn-danger">Delete Product</a>
+                <a th:if="${product.seller == #authentication.principal.fullName}" th:href="@{/products/delete}" class="btn btn-danger">Delete My Product</a>
+                <a sec:authorize="hasRole('ADMIN')" th:href="@{/products/delete}" class="btn btn-danger">Delete as Admin</a>
               </div>
         </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

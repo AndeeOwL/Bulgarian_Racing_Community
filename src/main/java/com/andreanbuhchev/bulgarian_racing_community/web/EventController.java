@@ -65,7 +65,7 @@ public class EventController {
             redirectAttributes.addFlashAttribute("addEventModel", addEventModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addEventModel",
                     bindingResult);
-            return "redirect:/add-event";
+            return "redirect:/events/add";
         }
 
         eventService.addEvent(addEventModel, userDetails);
@@ -73,9 +73,9 @@ public class EventController {
         return "redirect:/events";
     }
 
-    @PostMapping("/{id}/delete")
-    public void deleteEvent(@PathVariable Long id){
-        eventService.deleteEvent(id);
+    @PostMapping("/delete")
+    public void deleteEvent(){
+        //TODO delete method
     }
 
 }

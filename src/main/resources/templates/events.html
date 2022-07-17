@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="/fragments/commons::headx"></head>
 <body>
 <header th:replace="/fragments/commons::nav"></header>
@@ -18,8 +18,9 @@
         <p class="event-description" th:text="${event.description}">Description: THE BEST BMW FESTIVAL FOR ALL MANIACS </p>
         <a th:href="@{/shopping-cart/add}" class="btn btn-primary">Buy Tickets</a>
         <hr>
-        <a th:href="@{/comments/add}" class="btn btn-primary">Add New Event</a>
-        <a th:href="@{/comments/delete}" class="btn btn-danger">Delete Event</a>
+        <a th:href="@{/events/add}" class="btn btn-primary">Add New Event</a>
+        <a th:if="${event.author == #authentication.principal.fullName}" th:href="@{/events/delete}" class="btn btn-danger">Delete My Event</a>
+        <a sec:authorize="hasRole('ADMIN')" th:href="@{/events/delete}" class="btn btn-danger">Delete as Admin</a>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

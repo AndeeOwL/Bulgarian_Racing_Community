@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="/fragments/commons::headx"></head>
 <body>
 <header th:replace="/fragments/commons::nav"></header>
@@ -25,7 +25,8 @@
         <h5 class="car-TS" th:text="|Top speed: ${vehicle.topSpeed}|">Top speed: 270</h5>
         <p class="card-text" th:text="|Description: ${vehicle.description}|"> Description: My bmw is e46 330d 245 hp </p>
         <a th:href="@{/vehicles/add}" class="btn btn-primary">Add Vehicle</a>
-        <a th:href="@{/vehicles/{id}/delete}" class="btn btn-danger">Delete Vehicle</a>
+        <a th:if="${vehicle.owner == #authentication.principal.fullName}" th:href="@{/vehicles/delete}" class="btn btn-danger">Delete My Vehicle</a>
+        <a sec:authorize="hasRole('ADMIN')" th:href="@{/vehicles/delete}" class="btn btn-danger">Delete as Admin</a>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
