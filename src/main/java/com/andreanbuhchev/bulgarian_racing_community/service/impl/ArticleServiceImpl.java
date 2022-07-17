@@ -10,10 +10,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -52,7 +50,17 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<Article> findAllArticles() {
-        return articleRepository.findAll();
+    public List<ArticleView> findAllArticles() {
+
+        List<Article> articles = articleRepository.findAll();
+        List<ArticleView> articleViews = new ArrayList<>();
+
+        articles.forEach(a -> {
+            ArticleView articleView = new ArticleView();
+            modelMapper.map(a,articleView);
+            articleView.setAuthor(a.getUserEntity().fullName());
+            articleViews.add(articleView);
+        });
+        return articleViews;
     }
 }

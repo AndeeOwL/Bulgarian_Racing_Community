@@ -3,13 +3,19 @@ import com.andreanbuhchev.bulgarian_racing_community.model.dto.EventDto;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.Event;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.ShoppingCart;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.UserEntity;
+import com.andreanbuhchev.bulgarian_racing_community.model.entity.Vehicle;
 import com.andreanbuhchev.bulgarian_racing_community.model.repository.EventRepository;
 import com.andreanbuhchev.bulgarian_racing_community.model.repository.ShoppingCartRepository;
 import com.andreanbuhchev.bulgarian_racing_community.model.repository.UserRepository;
+import com.andreanbuhchev.bulgarian_racing_community.model.view.EventView;
+import com.andreanbuhchev.bulgarian_racing_community.model.view.VehicleView;
 import com.andreanbuhchev.bulgarian_racing_community.service.EventService;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -55,5 +61,19 @@ public class EventServiceImpl implements EventService {
     @Override
     public void deleteEvent(Long id) {
         eventRepository.deleteById(id);
+    }
+
+    @Override
+    public List<EventView> findAll() {
+        List<Event> events = eventRepository.findAll();
+        List<EventView> eventViews = new ArrayList<>();
+
+        events.forEach(event -> {
+            EventView eventView = new EventView();
+            modelMapper.map(event,eventView);
+            eventView.setAuthor(event.getUserEntity().fullName());
+            eventViews.add(eventView);
+        });
+        return eventViews;
     }
 }

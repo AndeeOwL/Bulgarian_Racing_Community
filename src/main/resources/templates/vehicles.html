@@ -7,28 +7,30 @@
 
 <h1 class="cars-h1"> HERE ARE ALL OF THE VEHICLES </h1>
 
-<div class="card" style="width: 40rem;">
-    <h5 class="car-user"> Andrean Buhchev </h5>
-    <img class="card-img-top" th:src="@{/images/1-BMW-3-Series.jpg}" alt="Card image cap">
+<div class="card" style="width: 40rem;" th:each="vehicle : ${allVehicles}">
+    <h5 class="car-user" th:text="${vehicle.owner}"> Andrean Buhchev </h5>
+    <img class="card-img-top" th:src="${vehicle.photo}" alt="Card image cap">
     <div class="card-body">
-        <h5 class="car-brand">BRAND: Bmw</h5>
-        <h5 class="car-model">MODEL: E46 330D</h5>
-        <h5 class="car-YOP">YEAR OF PRODUCTION: 2002</h5>
-        <h5 class="car-HP">HP: 245</h5>
-        <h5 class="car-ES">Engine Displacement cc: 3000</h5>
-        <h5 class="car-NM">Torque NM: 600</h5>
-        <h5 class="car-ET">Engine type: DIESEL </h5>
-        <h5 class="car-VT">Vehicle type: CAR </h5>
-        <h5 class="car-QMS">1/4 mile: 13.3</h5>
-        <h5 class="car-MS">1 mile: 40.0 </h5>
-        <h5 class="car-ZH">0-100: 5.5</h5>
-        <h5 class="car-TS">Top speed: 270</h5>
-        <p class="card-text"> Description: My bmw is e46 330d 245 hp </p>
+        <h5 class="car-brand" th:text="|BRAND: ${vehicle.brand}|">BRAND: Bmw</h5>
+        <h5 class="car-model" th:text="|MODEL: ${vehicle.model}|">MODEL: E46 330D</h5>
+        <h5 class="car-YOP"th:text="|YEAR OF PRODUCTION: ${vehicle.yearOfProduction}|" >YEAR OF PRODUCTION: 2002</h5>
+        <h5 class="car-HP" th:text="|HP: ${vehicle.hp}|" >HP: 245</h5>
+        <h5 class="car-ES" th:text="|Engine Displacement cc: ${vehicle.engineSize}|">Engine Displacement cc: 3000</h5>
+        <h5 class="car-NM" th:text="|Torque NM: ${vehicle.nm}|">Torque NM: 600</h5>
+        <h5 class="car-ET" th:text="|Engine type: ${vehicle.engineType}|">Engine type: DIESEL </h5>
+        <h5 class="car-VT" th:text="|Vehicle type: ${vehicle.vehicleType}|">Vehicle type: CAR </h5>
+        <h5 class="car-QMS" th:text="|1/4 mile: ${vehicle.quarterMileStanding}|">1/4 mile: 13.3</h5>
+        <h5 class="car-MS" th:text="|1 mile: ${vehicle.mileStanding}|">1 mile: 40.0 </h5>
+        <h5 class="car-ZH" th:text="|0-100: ${vehicle.zeroToHundred}|">0-100: 5.5</h5>
+        <h5 class="car-TS" th:text="|Top speed: ${vehicle.topSpeed}|">Top speed: 270</h5>
+        <p class="card-text" th:text="|Description: ${vehicle.description}|"> Description: My bmw is e46 330d 245 hp </p>
         <a th:href="@{/vehicles/add}" class="btn btn-primary">Add Vehicle</a>
         <a th:href="@{/vehicles/{id}/delete}" class="btn btn-danger">Delete Vehicle</a>
     </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 <footer th:replace="/fragments/commons::footerx"></footer>

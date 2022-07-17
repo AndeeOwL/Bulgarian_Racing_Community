@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.Optional;
+import java.util.List;
 
 
 @Controller
@@ -32,7 +32,11 @@ public class ArticleController {
 
     @GetMapping()
     public String allArticles(Model model) {
-        model.addAttribute("allArticles", articleService.findAllArticles());
+
+
+        List<ArticleView> articles = articleService.findAllArticles();
+
+        model.addAttribute("allArticles", articles);
         return "articles";
     }
 

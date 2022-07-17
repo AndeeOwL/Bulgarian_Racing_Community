@@ -3,6 +3,8 @@ package com.andreanbuhchev.bulgarian_racing_community.web;
 import com.andreanbuhchev.bulgarian_racing_community.model.dto.ArticleDto;
 import com.andreanbuhchev.bulgarian_racing_community.model.dto.EventDto;
 import com.andreanbuhchev.bulgarian_racing_community.model.dto.ProductDto;
+import com.andreanbuhchev.bulgarian_racing_community.model.view.ProductsView;
+import com.andreanbuhchev.bulgarian_racing_community.model.view.VehicleView;
 import com.andreanbuhchev.bulgarian_racing_community.service.EventService;
 import com.andreanbuhchev.bulgarian_racing_community.service.ProductService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/products")
@@ -29,7 +32,10 @@ public class ProductsController {
     }
 
     @GetMapping()
-    public String products(){
+    public String products(Model model){
+        List<ProductsView> products = productService.findAll();
+
+        model.addAttribute("allProducts", products);
         return "products";
     }
 

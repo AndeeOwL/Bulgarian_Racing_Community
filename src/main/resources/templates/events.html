@@ -7,22 +7,24 @@
 
 <h1 class="events-h1"> UPCOMING EVENTS </h1>
 
-<div class="card" style="width: 50rem;">
+<div class="card" style="width: 50rem;" th:each="event : ${allEvents}">
     <div class="card-body">
-        <h3 class="card-title"> BMW FESTIVAL 2022 </h3>
-        <div class="article-user"><a href=""> Andrean Buhchev </a></div>
+        <h3 class="card-title" th:text="${event.name}"> BMW FESTIVAL 2022 </h3>
+        <div class="article-user"th:text="${event.author}"><a href=""> Andrean Buhchev </a></div>
         <hr>
-        <h5 class="event-location">Location: LETISHTE STARA ZAGORA </h5>
-        <h5 class="event-time">When: 10.10.22 </h5>
-        <h5 class="event-price">Price lv: 10 </h5>
-        <p class="event-description">Description: THE BEST BMW FESTIVAL FOR ALL MANIACS </p>
+        <h5 class="event-location"th:text="${event.location}">Location: LETISHTE STARA ZAGORA </h5>
+        <h5 class="event-time" th:text="${event.time}">When: 10.10.22 </h5>
+        <h5 class="event-price" th:text="${event.price}">Price lv: 10 </h5>
+        <p class="event-description" th:text="${event.description}">Description: THE BEST BMW FESTIVAL FOR ALL MANIACS </p>
         <a th:href="@{/shopping-cart/add}" class="btn btn-primary">Buy Tickets</a>
         <hr>
         <a th:href="@{/comments/add}" class="btn btn-primary">Add New Event</a>
         <a th:href="@{/comments/delete}" class="btn btn-danger">Delete Event</a>
     </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 <footer th:replace="/fragments/commons::footerx">

@@ -19,7 +19,7 @@ public class EventDto {
     private String description;
 
     @FutureOrPresent
-    @DateTimeFormat
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull
     private LocalDate time;
 

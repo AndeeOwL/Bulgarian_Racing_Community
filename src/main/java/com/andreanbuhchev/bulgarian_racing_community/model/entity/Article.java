@@ -19,9 +19,6 @@ public class Article extends BaseEntity {
 
     private String text;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "article")
-    private List<Comment> comments;
-
     public UserEntity getUserEntity() {
         return userEntity;
     }
@@ -38,13 +35,6 @@ public class Article extends BaseEntity {
         this.text = text;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
 
     public Article() {
     }

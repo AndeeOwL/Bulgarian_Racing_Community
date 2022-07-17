@@ -25,8 +25,6 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
-    private boolean isActive;
-
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "userEntity")
     private List<Vehicle> vehicle;
 
@@ -39,9 +37,6 @@ public class UserEntity extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "userEntity")
     private List<Product> products;
-
-    @OneToOne
-    private ShoppingCart shoppingCart;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "userEntity")
     private List<Event> events;
@@ -127,22 +122,6 @@ public class UserEntity extends BaseEntity {
 
     public void setProducts(List<Product> products) {
         this.products = products;
-    }
-
-    public ShoppingCart getShoppingCart() {
-        return shoppingCart;
-    }
-
-    public void setShoppingCart(ShoppingCart shoppingCart) {
-        this.shoppingCart = shoppingCart;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
     }
 
     public String fullName() {

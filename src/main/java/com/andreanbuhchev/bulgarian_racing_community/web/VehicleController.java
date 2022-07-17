@@ -1,6 +1,7 @@
 package com.andreanbuhchev.bulgarian_racing_community.web;
 
 import com.andreanbuhchev.bulgarian_racing_community.model.dto.VehicleDto;
+import com.andreanbuhchev.bulgarian_racing_community.model.view.VehicleView;
 import com.andreanbuhchev.bulgarian_racing_community.service.VehicleService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/vehicles")
@@ -26,7 +28,11 @@ public class VehicleController {
     }
 
     @GetMapping()
-    public String vehicles(){
+    public String vehicles(Model model){
+
+        List<VehicleView> vehicles = vehicleService.findAll();
+
+        model.addAttribute("allVehicles", vehicles);
         return "vehicles";
     }
 
@@ -49,7 +55,7 @@ public class VehicleController {
             redirectAttributes.addFlashAttribute("addVehicleModel", addVehicleModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addVehicleModel",
                     bindingResult);
-            return "redirect:/add-vehicle";
+            return "redirect:/add-vehicles";
         }
 
         vehicleService.addVehicle(addVehicleModel, userDetails);

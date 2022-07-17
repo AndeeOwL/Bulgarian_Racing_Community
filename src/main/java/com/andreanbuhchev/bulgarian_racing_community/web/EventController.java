@@ -1,6 +1,8 @@
 package com.andreanbuhchev.bulgarian_racing_community.web;
 import com.andreanbuhchev.bulgarian_racing_community.model.dto.ArticleDto;
 import com.andreanbuhchev.bulgarian_racing_community.model.dto.EventDto;
+import com.andreanbuhchev.bulgarian_racing_community.model.view.EventView;
+import com.andreanbuhchev.bulgarian_racing_community.model.view.VehicleView;
 import com.andreanbuhchev.bulgarian_racing_community.service.EventService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @Controller
@@ -28,7 +31,13 @@ public class EventController {
     }
 
     @GetMapping()
-    public String events(){
+    public String events(Model model){
+
+
+        List<EventView> events = eventService.findAll();
+
+        model.addAttribute("allEvents", events);
+
         return "events";
     }
 
@@ -39,11 +48,11 @@ public class EventController {
 
     @GetMapping("/add")
     public String addArticle(Model model) {
-        if (!model.containsAttribute("addArticleModel")) {
-            model.addAttribute("addArticleModel", new ArticleDto());
+        if (!model.containsAttribute("addEventModel")) {
+            model.addAttribute("addEventModel", new EventDto());
         }
 
-        return "add-article";
+        return "add-event";
     }
 
     @PostMapping("/add")
