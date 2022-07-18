@@ -7,7 +7,7 @@
 
 <h1 class="cars-h1"> HERE YOU CAN SEE ALL OF THE PRODUCTS </h1>
 
-        <div class="card" style="width: 40rem;" th:each="product : ${allProducts}">
+        <div class="card" th:each="product : ${allProducts}">
             <img class="card-img-top" th:src="${product.photo}" alt="Card image cap">
             <div class="card-body">
                   <h5 class="product-seller" th:text="|Seller: ${product.seller}|">Seller: Andrean Buhchev </h5>

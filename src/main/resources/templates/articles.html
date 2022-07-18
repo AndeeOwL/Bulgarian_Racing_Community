@@ -8,7 +8,7 @@
 
 <h1 class="articles-h1"> HERE ARE ALL OF THE ARTICLES </h1>
 
-    <div class="card" style="width: 50rem;" th:each="article : ${allArticles}" >
+    <div class="card" th:each="article : ${allArticles}" >
         <div class="card-body" >
             <h3 th:text="${article.title}">My Car is very fast</h3>
             <div th:text="${article.author}"><a href=""> Andrean Buhchev </a></div>

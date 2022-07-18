@@ -7,7 +7,7 @@
 
 <h1 class="events-h1"> UPCOMING EVENTS </h1>
 
-<div class="card" style="width: 50rem;" th:each="event : ${allEvents}">
+<div class="card"  th:each="event : ${allEvents}">
     <div class="card-body">
         <h3 class="card-title" th:text="${event.name}"> BMW FESTIVAL 2022 </h3>
         <div class="article-user"th:text="${event.author}"><a href=""> Andrean Buhchev </a></div>

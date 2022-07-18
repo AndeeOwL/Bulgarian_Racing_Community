@@ -7,7 +7,7 @@
 
 <h1 class="cars-h1"> HERE ARE ALL OF THE VEHICLES </h1>
 
-<div class="card" style="width: 40rem;" th:each="vehicle : ${allVehicles}">
+<div class="card" th:each="vehicle : ${allVehicles}">
     <h5 class="car-user" th:text="${vehicle.owner}"> Andrean Buhchev </h5>
     <img class="card-img-top" th:src="${vehicle.photo}" alt="Card image cap">
     <div class="card-body">

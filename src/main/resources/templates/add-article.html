@@ -17,25 +17,26 @@
                 <input
                         id="title"
                         th:field="*{title}"
-                        th:errorclass="is-invalid"
+                        errorclass="is-invalid"
                         type="text"
                         class="form-control"
                         placeholder="Title"/>
-                <p class="invalid-feedback errors alert alert-danger">
-                    Article must have title.
-                </p>
+                <small id="titleHelpInline" class="bg-danger text-light rounded invalid-feedback">
+                    Title in articles must not be empty.
+                </small>
             </div>
             <div class="form-group col-md-6 mb-3">
                 <label for="text" class="text-white font-weight-bold">Text</label>
                 <input id="text"
                        th:field="*{text}"
+                       th:error="*{text}"
                        th:errorclass="is-invalid"
                        type="text"
                        class="form-control"
                        placeholder="Text"/>
-                <p class="invalid-feedback errors alert alert-danger">
+                <small id="textHelpInline" class="bg-danger text-light rounded invalid-feedback">
                     Text in articles must not be empty.
-                </p>
+                </small>
             </div>
         </div>
             <div class="row">

@@ -88,17 +88,11 @@ form.main-form {
     text-align: center;
 }
 
-.comments {
-    margin-bottom: 5%;
-}
-
 .card {
     background-color: #1b252e;
     color: white;
-    margin-top: 5%;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-bottom: 5%;
+    margin: 5% 25%;
+
 }
 
 .cars-h1 {
@@ -127,25 +121,22 @@ form.main-form {
     text-align: center;
 }
 
-.comments-h3 {
-    text-align: center;
-}
-
 .mechanic {
-    margin-top: 25%;
+    margin-top: 15%;
     margin-left: 25%;
     margin-bottom: 10%;
 }
 
 .bubble {
-    margin-top: -40%;
+    margin-top: -30%;
 }
 
 
 
 .index-btn {
-    margin-left: 84%;
-    margin-top: -53%;
+    margin-left: 64%;
+    margin-top: -33%;
+
 }
 
 .footer {
@@ -160,4 +151,31 @@ form.main-form {
 .navbar-toggle {
     color: white;
     background-color: #1b252e;
+}
+
+.errors {
+    margin-top: 5%;
+}
+
+.card-img-top {
+    padding: 5px;
+    width: 60%;
+    height: 60%;
+}
+.btn-danger {
+    margin: 5px;
+}
+
+.nav-item-lang {
+    margin-left: 10px;
+}
+
+.error-page-text {
+    color: white;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 350%;
+    background-color: firebrick;
+    margin-right: 15%;
+    margin-left: 15%;
 }
