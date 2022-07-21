@@ -18,4 +18,8 @@ public interface UserService {
     void login(UserEntity userEntity);
 
     List<UserEntity> findAllUsers();
+
+    void addRoleToUser(Long id);
+
+    void deleteUser(Long id);
 }

@@ -1,6 +1,6 @@
 package com.andreanbuhchev.bulgarian_racing_community.web;
+
 import com.andreanbuhchev.bulgarian_racing_community.model.dto.ArticleDto;
-import com.andreanbuhchev.bulgarian_racing_community.model.entity.Article;
 import com.andreanbuhchev.bulgarian_racing_community.model.view.ArticleView;
 import com.andreanbuhchev.bulgarian_racing_community.service.ArticleService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,7 +59,7 @@ public class ArticleController {
             redirectAttributes.addFlashAttribute("addArticleModel", addArticleModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addArticleModel",
                     bindingResult);
-            return "redirect:/articles/add";
+            return "redirect:/articles/add";  //TODO ARTICLES THROWING ERROR WHEN ADDED WITH EMPTY FIELDS
         }
 
         articleService.addArticle(addArticleModel, userDetails);
@@ -69,10 +68,17 @@ public class ArticleController {
     }
 
 
-    @PostMapping("/delete")
-    public void deleteArticle(){
-        //TODO learn how to delete specific item
+    @GetMapping("/delete/{id}")
+    public String deleteArticle(@PathVariable("id") Long articleId){
+
+        articleService.deleteArticle(articleId);
+
+        return "redirect:/home";
     }
+
+    //TODO EDIT FETCH FOR COMMENTS NOT WORKING
+    //TODO BUTTON ARTICLES NOT DROPPING DOWN AT FIRST
+
 
 
 

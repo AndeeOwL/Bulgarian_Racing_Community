@@ -2,9 +2,6 @@ package com.andreanbuhchev.bulgarian_racing_community.model.entity;
 
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.enums.EngineType;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.enums.VehicleType;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;

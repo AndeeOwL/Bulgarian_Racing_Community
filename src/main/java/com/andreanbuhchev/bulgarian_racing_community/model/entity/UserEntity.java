@@ -1,7 +1,6 @@
 package com.andreanbuhchev.bulgarian_racing_community.model.entity;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,6 +125,13 @@ public class UserEntity extends BaseEntity {
 
     public String fullName() {
         return firstName + " " + lastName;
+    }
+
+    public String fullRoles() {
+        if (getRole().size() > 1) {
+            return "USER,ADMIN";
+        }
+        return "USER";
     }
 
 }

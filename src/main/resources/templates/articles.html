@@ -9,15 +9,56 @@
 <h1 class="articles-h1"> HERE ARE ALL OF THE ARTICLES </h1>
 
     <div class="card" th:each="article : ${allArticles}" >
+
         <div class="card-body" >
+            <input type="hidden" name="articleId" id="articleId" th:value="${article.id}">
             <h3 th:text="${article.title}">My Car is very fast</h3>
-            <div th:text="${article.author}"><a href=""> Andrean Buhchev </a></div>
+            <div th:text="${article.author}" id="authorName" ><a href=""> Andrean Buhchev </a></div>
             <hr>
             <p th:text="${article.text}"> My car is fastest in man just believe it! </p>
             <hr>
-            <a th:if="${article.author == #authentication.principal.fullName}" th:href="@{/products/delete}" class="btn btn-danger">Delete My Article</a>
-            <a sec:authorize="hasRole('ADMIN')" th:href="@{/products/delete}" class="btn btn-danger">Delete as Admin</a>
+            <a th:if="${article.author == #authentication.principal.fullName}" th:href="@{/articles/delete/{id}(id=*{article.id})}" class="btn btn-danger">Delete My Article</a>
+            <a sec:authorize="hasRole('ADMIN')" th:href="@{/articles/delete/{id}(id=*{article.id})}" class="btn btn-danger">Delete as Admin</a>
+            <hr>
+            <section class="comments">
+
+                <h1>Comments</h1>
+                <div>
+                    <form id="commentForm" method="POST"
+                          action="/">
+                        <div class="form-group">
+                            <h4>Leave a comment</h4>
+                            <label for="message">Message</label>
+
+                            <textarea name="message"
+                                      id="message"
+                                      cols="30"
+                                      rows="5"
+                                      class="form-control"
+                                      style="background-color: white;"></textarea>
+                            <small id="messageError" class="invalid-feedback">
+                                Message can not be empty.
+                            </small>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit"
+                                   class="btn btn-primary btn-lg"
+                                   id="postComment"
+                                   value="Post Comment"/>
+                        </div>
+                    </form>
+
+                </div>
+
+
+                <div>
+                    <span id="commentCtnr"></span>
+                </div>
+
+            </section>
         </div>
+        <script th:src="@{/js/comments.js}"></script>
     </div>
 
 </body>

@@ -3,7 +3,6 @@ package com.andreanbuhchev.bulgarian_racing_community.service;
 
 import com.andreanbuhchev.bulgarian_racing_community.model.dto.EventDto;
 import com.andreanbuhchev.bulgarian_racing_community.model.view.EventView;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;

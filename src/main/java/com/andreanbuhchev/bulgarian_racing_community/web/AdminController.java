@@ -5,6 +5,7 @@ import com.andreanbuhchev.bulgarian_racing_community.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -28,19 +29,19 @@ public class AdminController {
         List<UserEntity> users = userService.findAllUsers();
 
         model.addAttribute("allUsers", users);
-        return "admin-panel";
+        return "admin-panel";  //TODO EDIT METHOD NOT TO SHOW ADMINS
     }
 
-    @PostMapping("/add")
-    public String makeAdmin(Model model) {
-        //TODO implement method learn how to get specific item and work with it
-        return "admin-panel";
+    @GetMapping("/add/{id}")
+    public String makeAdmin(@PathVariable Long id) {
+        userService.addRoleToUser(id);
+        return "redirect:/home";  //TODO METHOD NOT WORKING CORRECTLY
     }
 
-    @PostMapping("/delete")
-    public String deleteUser(Model model) {
+    @GetMapping("/delete/{id}")
+    public String deleteUser(@PathVariable Long id) {
 
-        //TODO implement method learn how to get specific item and delete it
-        return "admin-panel";
+        userService.deleteUser(id);
+        return "redirect:/home";
     }
 }

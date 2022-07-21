@@ -3,6 +3,7 @@ import com.andreanbuhchev.bulgarian_racing_community.model.dto.ArticleDto;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.Article;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.UserEntity;
 import com.andreanbuhchev.bulgarian_racing_community.model.repository.ArticleRepository;
+import com.andreanbuhchev.bulgarian_racing_community.model.repository.CommentRepository;
 import com.andreanbuhchev.bulgarian_racing_community.model.repository.UserRepository;
 import com.andreanbuhchev.bulgarian_racing_community.model.view.ArticleView;
 import com.andreanbuhchev.bulgarian_racing_community.service.ArticleService;
@@ -21,11 +22,13 @@ public class ArticleServiceImpl implements ArticleService {
     private final ModelMapper modelMapper;
     private final UserRepository userRepository;
     private final ArticleRepository articleRepository;
+    private final CommentRepository commentRepository;
 
-    public ArticleServiceImpl(ModelMapper modelMapper, UserRepository userRepository, ArticleRepository articleRepository) {
+    public ArticleServiceImpl(ModelMapper modelMapper, UserRepository userRepository, ArticleRepository articleRepository, CommentRepository commentRepository) {
         this.modelMapper = modelMapper;
         this.userRepository = userRepository;
         this.articleRepository = articleRepository;
+        this.commentRepository = commentRepository;
     }
 
     @Override

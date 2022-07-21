@@ -1,14 +1,13 @@
 package com.andreanbuhchev.bulgarian_racing_community.service.impl;
+
 import com.andreanbuhchev.bulgarian_racing_community.model.dto.EventDto;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.Event;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.ShoppingCart;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.UserEntity;
-import com.andreanbuhchev.bulgarian_racing_community.model.entity.Vehicle;
 import com.andreanbuhchev.bulgarian_racing_community.model.repository.EventRepository;
 import com.andreanbuhchev.bulgarian_racing_community.model.repository.ShoppingCartRepository;
 import com.andreanbuhchev.bulgarian_racing_community.model.repository.UserRepository;
 import com.andreanbuhchev.bulgarian_racing_community.model.view.EventView;
-import com.andreanbuhchev.bulgarian_racing_community.model.view.VehicleView;
 import com.andreanbuhchev.bulgarian_racing_community.service.EventService;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetails;

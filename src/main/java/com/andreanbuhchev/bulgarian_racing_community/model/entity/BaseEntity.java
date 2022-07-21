@@ -1,8 +1,5 @@
 package com.andreanbuhchev.bulgarian_racing_community.model.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;

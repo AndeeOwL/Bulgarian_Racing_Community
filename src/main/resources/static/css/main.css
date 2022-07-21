@@ -179,3 +179,10 @@ form.main-form {
     margin-right: 15%;
     margin-left: 15%;
 }
+
+.admin-panel {
+    background-color: #1b252e;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: white;
+}

@@ -17,7 +17,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -34,7 +33,7 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserRepository userRepository,
                            UserRoleRepository userRoleRepository,
                            PasswordEncoder passwordEncoder,
-                           UserDetailsService userDetailsService, @Value("admin") String adminPass, ModelMapper modelMapper)  {
+                           UserDetailsService userDetailsService, @Value("admin") String adminPass, ModelMapper modelMapper) {
         this.userRepository = userRepository;
         this.userRoleRepository = userRoleRepository;
         this.passwordEncoder = passwordEncoder;
@@ -42,6 +41,7 @@ public class UserServiceImpl implements UserService {
         this.adminPass = adminPass;
         this.modelMapper = modelMapper;
     }
+
     public void init() {
         if (userRepository.count() == 0 && userRoleRepository.count() == 0) {
 
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
             userRoleRepository.save(adminRole);
             userRoleRepository.save(userRole);
 
-            initAdmin(List.of(adminRole,userRole));
+            initAdmin(List.of(adminRole, userRole));
 
         }
     }
@@ -61,12 +61,12 @@ public class UserServiceImpl implements UserService {
     public void initAdmin(List<UserRoleEntity> roles) {
         UserEntity admin = new UserEntity();
 
-                admin.setRole(roles);
-                admin.setFirstName("Andrean");
-                admin.setLastName("Buhchev");
-                admin.setUsername("andeeowl");
-                admin.setEmail("andeeowl@yahoo.com");
-                admin.setPassword(passwordEncoder.encode(adminPass));
+        admin.setRole(roles);
+        admin.setFirstName("Andrean");
+        admin.setLastName("Buhchev");
+        admin.setUsername("andeeowl");
+        admin.setEmail("andeeowl@yahoo.com");
+        admin.setPassword(passwordEncoder.encode(adminPass));
 
         userRepository.save(admin);
     }
@@ -75,35 +75,47 @@ public class UserServiceImpl implements UserService {
     public void registerAndLogin(UserRegisterDto userRegisterDto) {
         UserEntity newUser = new UserEntity();
 
-            modelMapper.map(userRegisterDto,newUser);
-            newUser.setPassword(passwordEncoder.encode(userRegisterDto.getPassword()));
-            newUser.setRole(userRoleRepository.findById(2));
+        modelMapper.map(userRegisterDto, newUser);
+        newUser.setPassword(passwordEncoder.encode(userRegisterDto.getPassword()));
+        newUser.setRole(userRoleRepository.findById(2));
 
-            userRepository.save(newUser);
-            login(newUser);
-        }
+        userRepository.save(newUser);
+        login(newUser);
+    }
 
 
     @Override
     public void login(UserEntity userEntity) {
-                UserDetails userDetails =
-                        userDetailsService.loadUserByUsername(userEntity.getUsername());
+        UserDetails userDetails =
+                userDetailsService.loadUserByUsername(userEntity.getUsername());
 
-                Authentication auth =
-                        new UsernamePasswordAuthenticationToken(
-                                userDetails,
-                                userDetails.getPassword(),
-                                userDetails.getAuthorities()
-                        );
+        Authentication auth =
+                new UsernamePasswordAuthenticationToken(
+                        userDetails,
+                        userDetails.getPassword(),
+                        userDetails.getAuthorities()
+                );
 
-                SecurityContextHolder.
-                        getContext().
-                        setAuthentication(auth);
-            }
+        SecurityContextHolder.
+                getContext().
+                setAuthentication(auth);
+    }
 
     @Override
     public List<UserEntity> findAllUsers() {
-        return userRepository.findAllByRoleNotLike("ADMIN");
+        List<UserEntity> users = userRepository.findAll();
+        return users;
+    }
+
+    @Override
+    public void addRoleToUser(Long id) {
+        UserEntity user = userRepository.findById(id).orElseThrow();
+        user.setRole(userRoleRepository.findById(1));
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
     }
 
 }

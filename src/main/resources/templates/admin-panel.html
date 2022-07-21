@@ -5,10 +5,11 @@
 <body>
 <header th:replace="/fragments/commons::nav"></header>
 
-<div style="width: 40rem;" th:each="user : ${allUsers}">
-        <p class="text" th:text="|Full name: ${user.fullName} Username:${user.username} User roles: USER |"> User </p>
-        <a th:href="@{/users/add}" class="btn btn-primary">Give Admin Authorities</a>
-        <a th:href="@{/users/delete}" class="btn btn-danger">Delete User</a>
+<div class="admin-panel" th:each="user : ${allUsers}">
+        <p class="text" th:text="|Full name: ${user.fullName} Username: ${user.username} User roles: ${user.fullRoles}  |"> User </p>
+    <hr>
+        <a th:href="@{/admin/add/{id}(id=*{user.id})}" class="btn btn-primary">Give Admin Authorities</a>
+        <a th:href="@{/admin/delete/{id}(id=*{user.id})}" class="btn btn-danger">Delete User</a>
     </div>
 
 </body>

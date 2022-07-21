@@ -1,8 +1,7 @@
 package com.andreanbuhchev.bulgarian_racing_community.web;
-import com.andreanbuhchev.bulgarian_racing_community.model.dto.ArticleDto;
+
 import com.andreanbuhchev.bulgarian_racing_community.model.dto.EventDto;
 import com.andreanbuhchev.bulgarian_racing_community.model.view.EventView;
-import com.andreanbuhchev.bulgarian_racing_community.model.view.VehicleView;
 import com.andreanbuhchev.bulgarian_racing_community.service.EventService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -44,6 +43,7 @@ public class EventController {
     @GetMapping("/{id}/buy")
     public void buyEvents(@PathVariable Long id,@AuthenticationPrincipal UserDetails userDetails){
         eventService.buyEvent(id,userDetails);
+                                                        //TODO MAKE ADDING TO CART WORK CORRECTLY
     }
 
     @GetMapping("/add")

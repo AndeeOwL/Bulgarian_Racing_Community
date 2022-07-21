@@ -1,9 +1,5 @@
 package com.andreanbuhchev.bulgarian_racing_community.model.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,6 +14,10 @@ public class Article extends BaseEntity {
     private String title;
 
     private String text;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "article")
+    private List<Comment> comments;
+
 
     public UserEntity getUserEntity() {
         return userEntity;
@@ -45,5 +45,13 @@ public class Article extends BaseEntity {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

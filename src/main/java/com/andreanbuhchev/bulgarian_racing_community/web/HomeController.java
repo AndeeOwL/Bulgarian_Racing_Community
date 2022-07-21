@@ -1,6 +1,5 @@
 package com.andreanbuhchev.bulgarian_racing_community.web;
 
-import com.andreanbuhchev.bulgarian_racing_community.model.entity.Vehicle;
 import com.andreanbuhchev.bulgarian_racing_community.model.view.FastestVehiclesView;
 import com.andreanbuhchev.bulgarian_racing_community.service.VehicleService;
 import org.springframework.stereotype.Controller;
@@ -34,6 +33,14 @@ public class HomeController {
 
         return "home";
     }
+
+    //TODO EDIT METHOD NOT TO THROW EXCEPTIONS IF NOT ENOUGH CARS FOR CAROUSEL
+
+    //TODO INDEX PAGE TO BE TRANSLATED
+
+    //TODO HOME PAGE TO BE TRANSLATED
+
+    //TODO LOGOUT BUTTON TO BE TRANSLATED
 
 
 }

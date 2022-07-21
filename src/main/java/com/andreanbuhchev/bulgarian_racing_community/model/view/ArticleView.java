@@ -2,13 +2,23 @@ package com.andreanbuhchev.bulgarian_racing_community.model.view;
 
 public class ArticleView {
 
-    String title;
+    private Long id;
 
-    String author;
+    private String title;
 
-    String text;
+    private String author;
+
+    private String text;
 
     public ArticleView() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
