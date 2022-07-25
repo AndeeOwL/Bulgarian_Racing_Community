@@ -1,9 +1,12 @@
 package com.andreanbuhchev.bulgarian_racing_community.model.entity;
 
+import com.andreanbuhchev.bulgarian_racing_community.model.view.ShoppingCartView;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,10 +17,10 @@ public class ShoppingCart extends BaseEntity {
     private UserEntity userEntity;
 
     @ManyToMany
-    private List<Product> product;
+    private List<Event> events = new ArrayList<>();
 
     @ManyToMany
-    private List<Event> events;
+    private List<Product> products = new ArrayList<>();
 
     public ShoppingCart() {
     }
@@ -30,19 +33,19 @@ public class ShoppingCart extends BaseEntity {
         this.userEntity = userEntity;
     }
 
-    public List<Product> getProduct() {
-        return product;
-    }
-
-    public void setProduct(List<Product> product) {
-        this.product = product;
-    }
-
     public List<Event> getEvents() {
         return events;
     }
 
     public void setEvents(List<Event> events) {
         this.events = events;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

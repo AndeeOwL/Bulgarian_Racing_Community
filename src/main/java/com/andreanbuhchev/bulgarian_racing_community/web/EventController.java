@@ -40,10 +40,13 @@ public class EventController {
         return "events";
     }
 
-    @GetMapping("/{id}/buy")
-    public void buyEvents(@PathVariable Long id,@AuthenticationPrincipal UserDetails userDetails){
+    @GetMapping("/buy/{id}")
+    public String buyEvents(@PathVariable Long id,@AuthenticationPrincipal UserDetails userDetails){
+
         eventService.buyEvent(id,userDetails);
-                                                        //TODO MAKE ADDING TO CART WORK CORRECTLY
+
+        return "redirect:/events";
+
     }
 
     @GetMapping("/add")
@@ -73,9 +76,12 @@ public class EventController {
         return "redirect:/events";
     }
 
-    @PostMapping("/delete")
-    public void deleteEvent(){
-        //TODO delete method
+    @GetMapping("/delete/{id}")
+    public String deleteEvent(@PathVariable Long id){
+
+        eventService.deleteEvent(id);
+
+        return "redirect:/events";
     }
 
 }

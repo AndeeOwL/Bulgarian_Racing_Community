@@ -5,7 +5,7 @@ commentForm.addEventListener("submit", handleFormSubmission)
 const csrfHeaderName = document.head.querySelector('[name=_csrf_header]').content
 const csrfHeaderValue = document.head.querySelector('[name=_csrf]').content
 
-const commentContaier = document.getElementById('commentCtnr')
+const commentContainer = document.getElementById('commentCntr')
 
 async function handleFormSubmission(event) {
     event.preventDefault()
@@ -25,7 +25,7 @@ async function handleFormSubmission(event) {
     }).then(res => res.json())
       .then(data => {
         document.getElementById('message').value = ""
-        commentContaier.innerHTML += commentAsHtml(data)
+        commentContainer.innerHTML += commentAsHtml(data)
       })
 }
 
@@ -45,6 +45,6 @@ fetch(`http://localhost:8080/api/${articleId}/comments`, {
 }).then(res => res.json())
     .then(data => {
         for(let comment of data) {
-            commentContaier.innerHTML += commentAsHtml(comment)
+            commentContainer.innerHTML += commentAsHtml(comment)
         }
     })

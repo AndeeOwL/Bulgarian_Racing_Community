@@ -13,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,12 +33,15 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public void buyProduct(Long id, UserDetails userDetails) {
+
         Product product = productRepository.findById(id).orElseThrow();
 
         ShoppingCart shoppingCart = shoppingCartRepository.findByUserEntityUsername(userDetails.getUsername());
 
-        shoppingCart.getProduct().add(product);
+        shoppingCart.getProducts().add(product);
+
     }
 
     @Override

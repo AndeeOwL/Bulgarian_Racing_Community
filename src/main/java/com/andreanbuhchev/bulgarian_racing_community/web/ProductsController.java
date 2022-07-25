@@ -3,12 +3,14 @@ package com.andreanbuhchev.bulgarian_racing_community.web;
 import com.andreanbuhchev.bulgarian_racing_community.model.dto.ProductDto;
 import com.andreanbuhchev.bulgarian_racing_community.model.view.ProductsView;
 import com.andreanbuhchev.bulgarian_racing_community.service.ProductService;
+import com.andreanbuhchev.bulgarian_racing_community.service.ShoppingCartService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -34,9 +36,12 @@ public class ProductsController {
         return "products";
     }
 
-    @GetMapping("/buy")
-    public void buyProducts(){
-       //TODO ADD TO SHOPPING CART specific item
+    @GetMapping("/buy/{id}")
+    public String buyProducts(@PathVariable Long id, @AuthenticationPrincipal UserDetails userDetails){
+
+        productService.buyProduct(id,userDetails);
+
+        return "redirect:/products";
     }
 
     @GetMapping("/add")
@@ -66,9 +71,12 @@ public class ProductsController {
         return "redirect:/products";
     }
 
-    @PostMapping("/delete")
-    public void deleteProduct(){
-        //TODO Delete specific product
+    @GetMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable Long id){
+
+        productService.deleteProduct(id);
+
+        return "redirect:/products";
     }
 
 }

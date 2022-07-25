@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.HttpServerErrorException;
 
 import java.util.List;
 
@@ -25,16 +26,19 @@ public class HomeController {
     public String home(Model model){
 
      List<FastestVehiclesView> fastest = vehicleService.getFastest();
+     try {
+         model.addAttribute("First",fastest.get(0));
+         model.addAttribute("Second",fastest.get(1));
+         model.addAttribute("Third",fastest.get(2));
 
-     model.addAttribute("First",fastest.get(0));
-     model.addAttribute("Second",fastest.get(1));
-     model.addAttribute("Third",fastest.get(2));
+         return "home";
+
+     } catch (IndexOutOfBoundsException indexOutOfBoundsException) {
+         return "redirect:/vehicles/add";
+     }
 
 
-        return "home";
     }
-
-    //TODO EDIT METHOD NOT TO THROW EXCEPTIONS IF NOT ENOUGH CARS FOR CAROUSEL
 
     //TODO INDEX PAGE TO BE TRANSLATED
 

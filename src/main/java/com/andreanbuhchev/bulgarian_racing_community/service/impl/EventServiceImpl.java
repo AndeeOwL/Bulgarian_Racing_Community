@@ -13,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,13 +49,19 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
+    @Transactional
     public void buyEvent(Long id,UserDetails userDetails) {
 
         Event event = eventRepository.findById(id).orElseThrow();
 
+        UserEntity user = userRepository.findByUsername(userDetails.getUsername()).orElseThrow();
+
         ShoppingCart shoppingCart = shoppingCartRepository.findByUserEntityUsername(userDetails.getUsername());
 
-        shoppingCart.getEvents().add(event);
+            shoppingCart.setUserEntity(user);
+            shoppingCart.getEvents().add(event);
+
+
     }
 
     @Override

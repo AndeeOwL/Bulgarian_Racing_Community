@@ -3,6 +3,8 @@ import java.time.LocalDate;
 
 public class EventView {
 
+    private Long id;
+
     private String name;
 
     private String author;
@@ -16,6 +18,14 @@ public class EventView {
     private float price;
 
     public EventView() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

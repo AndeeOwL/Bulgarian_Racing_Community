@@ -73,7 +73,7 @@ public class ArticleController {
 
         articleService.deleteArticle(articleId);
 
-        return "redirect:/home";
+        return "redirect:/articles";
     }
 
     //TODO EDIT FETCH FOR COMMENTS NOT WORKING

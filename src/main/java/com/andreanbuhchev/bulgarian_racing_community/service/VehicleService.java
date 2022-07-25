@@ -11,6 +11,7 @@ public interface VehicleService {
     void addVehicle(VehicleDto addVehicleModel, UserDetails userDetails);
 
     void deleteVehicle(Long id);
+
     List<FastestVehiclesView> getFastest();
 
     List<VehicleView> findAll();

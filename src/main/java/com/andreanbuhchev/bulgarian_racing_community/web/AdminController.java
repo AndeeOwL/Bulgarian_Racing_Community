@@ -25,23 +25,24 @@ public class AdminController {
     @GetMapping()
     public String allUsers(Model model) {
 
-
         List<UserEntity> users = userService.findAllUsers();
 
         model.addAttribute("allUsers", users);
-        return "admin-panel";  //TODO EDIT METHOD NOT TO SHOW ADMINS
+        return "admin-panel";
     }
 
     @GetMapping("/add/{id}")
     public String makeAdmin(@PathVariable Long id) {
+
         userService.addRoleToUser(id);
-        return "redirect:/home";  //TODO METHOD NOT WORKING CORRECTLY
+
+        return "redirect:/admin";  //TODO METHOD NOT WORKING ..
     }
 
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable Long id) {
 
         userService.deleteUser(id);
-        return "redirect:/home";
+        return "redirect:/admin";
     }
 }

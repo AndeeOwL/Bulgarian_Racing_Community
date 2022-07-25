@@ -1,5 +1,6 @@
 package com.andreanbuhchev.bulgarian_racing_community.model.repository;
 
+import com.andreanbuhchev.bulgarian_racing_community.model.entity.ShoppingCart;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -63,12 +63,12 @@ public class VehicleController {
         return "redirect:/vehicles";
     }
 
-    @PostMapping("/{id}/delete")
-    public void deleteVehicle(@PathVariable Long id){
+    @GetMapping("/delete/{id}")
+    public String deleteVehicle(@PathVariable Long id){
+
         vehicleService.deleteVehicle(id);
+
+        return "redirect:/vehicles";
     }
-
-        //TODO EDIT DELETE METHOD TO WORK CORRECTLY
-
 
 }

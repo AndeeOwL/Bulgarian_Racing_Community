@@ -41,3 +41,4 @@ VALUES ('Im glad to be here thank you',2,'Greetings');
 INSERT INTO articles (text, user_entity_id, title)
 VALUES ('my car wont start what to do',3,'Car issue help');
 
+INSERT INTO shopping_cart (id, user_entity_id) VALUES (1,1),(2,2),(3,3);

@@ -1,6 +1,6 @@
 package com.andreanbuhchev.bulgarian_racing_community.model.view;
 
-public class ProductsView {
+public class ShoppingCartView {
 
     private Long id;
 
@@ -8,17 +8,25 @@ public class ProductsView {
 
     private String seller;
 
-    private float price;
-
     private String description;
 
-    private String photo;
+    private double price;
 
-    public ProductsView() {
+    private String type;
+
+    public ShoppingCartView() {
     }
 
     public Long getId() {
         return id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public void setId(Long id) {
@@ -41,14 +49,6 @@ public class ProductsView {
         this.seller = seller;
     }
 
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -57,11 +57,11 @@ public class ProductsView {
         this.description = description;
     }
 
-    public String getPhoto() {
-        return photo;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

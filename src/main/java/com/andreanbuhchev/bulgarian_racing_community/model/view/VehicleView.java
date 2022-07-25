@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 public class VehicleView {
 
+    private String id;
+
     private String owner;
 
     private String brand;
@@ -35,6 +37,14 @@ public class VehicleView {
     private String photo;
 
     public VehicleView() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getBrand() {

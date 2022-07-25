@@ -32,13 +32,13 @@ public class UserEntity extends BaseEntity {
     private List<UserRoleEntity> role = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "userEntity")
-    private List<Article> articles;
+    private List<Article> articles = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "userEntity")
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "userEntity")
-    private List<Event> events;
+    private List<Event> events = new ArrayList<>();
 
     public UserEntity() {
     }

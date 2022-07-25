@@ -1,9 +1,11 @@
 package com.andreanbuhchev.bulgarian_racing_community.service.impl;
 
 import com.andreanbuhchev.bulgarian_racing_community.model.dto.UserRegisterDto;
+import com.andreanbuhchev.bulgarian_racing_community.model.entity.ShoppingCart;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.UserEntity;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.UserRoleEntity;
 import com.andreanbuhchev.bulgarian_racing_community.model.entity.enums.RoleEnum;
+import com.andreanbuhchev.bulgarian_racing_community.model.repository.ShoppingCartRepository;
 import com.andreanbuhchev.bulgarian_racing_community.model.repository.UserRepository;
 import com.andreanbuhchev.bulgarian_racing_community.model.repository.UserRoleRepository;
 import com.andreanbuhchev.bulgarian_racing_community.service.UserService;
@@ -17,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,18 +31,20 @@ public class UserServiceImpl implements UserService {
     private final UserDetailsService userDetailsService;
     private final String adminPass;
     private final ModelMapper modelMapper;
+    private final ShoppingCartRepository shoppingCartRepository;
 
 
     public UserServiceImpl(UserRepository userRepository,
                            UserRoleRepository userRoleRepository,
                            PasswordEncoder passwordEncoder,
-                           UserDetailsService userDetailsService, @Value("admin") String adminPass, ModelMapper modelMapper) {
+                           UserDetailsService userDetailsService, @Value("admin") String adminPass, ModelMapper modelMapper, ShoppingCartRepository shoppingCartRepository) {
         this.userRepository = userRepository;
         this.userRoleRepository = userRoleRepository;
         this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService;
         this.adminPass = adminPass;
         this.modelMapper = modelMapper;
+        this.shoppingCartRepository = shoppingCartRepository;
     }
 
     public void init() {
@@ -78,8 +83,13 @@ public class UserServiceImpl implements UserService {
         modelMapper.map(userRegisterDto, newUser);
         newUser.setPassword(passwordEncoder.encode(userRegisterDto.getPassword()));
         newUser.setRole(userRoleRepository.findById(2));
+        ShoppingCart shoppingCart = new ShoppingCart();
 
         userRepository.save(newUser);
+        shoppingCart.setUserEntity(newUser);
+        shoppingCartRepository.save(shoppingCart);
+
+
         login(newUser);
     }
 
@@ -103,14 +113,29 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserEntity> findAllUsers() {
-        List<UserEntity> users = userRepository.findAll();
-        return users;
+        List<UserEntity> allUsers = userRepository.findAll();
+
+        List<UserEntity> usersWithoutAdmins = new ArrayList<>();
+
+        allUsers.stream().forEach(u -> {
+            if(u.getRole().size() <= 1) {
+                usersWithoutAdmins.add(u);
+            }
+        });
+
+
+        return usersWithoutAdmins;
     }
 
     @Override
     public void addRoleToUser(Long id) {
+
         UserEntity user = userRepository.findById(id).orElseThrow();
-        user.setRole(userRoleRepository.findById(1));
+
+        List <UserRoleEntity> userRoleEntity = userRoleRepository.findById(1);
+
+        user.getRole().add(1,userRoleEntity.get(0));
+
     }
 
     @Override
