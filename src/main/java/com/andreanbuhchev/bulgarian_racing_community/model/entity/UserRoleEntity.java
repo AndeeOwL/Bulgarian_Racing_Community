@@ -21,7 +21,8 @@ public class UserRoleEntity extends BaseEntity {
         return role;
     }
 
-    public void setRole(RoleEnum role) {
+    public UserRoleEntity setRole(RoleEnum role) {
         this.role = role;
+        return this;
     }
 }

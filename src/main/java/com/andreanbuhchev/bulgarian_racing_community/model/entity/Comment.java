@@ -30,48 +30,54 @@ public class Comment {
         return id;
     }
 
-    public void setId(long id) {
+    public Comment setId(long id) {
         this.id = id;
+        return this;
     }
 
     public boolean isApproved() {
         return approved;
     }
 
-    public void setApproved(boolean approved) {
+    public Comment setApproved(boolean approved) {
         this.approved = approved;
+        return this;
     }
 
     public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDateTime created) {
+    public Comment setCreated(LocalDateTime created) {
         this.created = created;
+        return this;
     }
 
     public String getText() {
         return text;
     }
 
-    public void setText(String text) {
+    public Comment setText(String text) {
         this.text = text;
+        return this;
     }
 
     public UserEntity getAuthor() {
         return author;
     }
 
-    public void setAuthor(UserEntity author) {
+    public Comment setAuthor(UserEntity author) {
         this.author = author;
+        return this;
     }
 
     public Article getArticle() {
         return article;
     }
 
-    public void setArticle(Article article) {
+    public Comment setArticle(Article article) {
         this.article = article;
+        return this;
     }
 }
 

@@ -29,39 +29,44 @@ public class Product extends BaseEntity {
         return userEntity;
     }
 
-    public void setUserEntity(UserEntity userEntity) {
+    public Product setUserEntity(UserEntity userEntity) {
         this.userEntity = userEntity;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Product setName(String name) {
         this.name = name;
+        return this;
     }
 
     public float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public Product setPrice(float price) {
         this.price = price;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public Product setDescription(String description) {
         this.description = description;
+        return this;
     }
 
     public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public Product setPhoto(String photo) {
         this.photo = photo;
+        return this;
     }
 }

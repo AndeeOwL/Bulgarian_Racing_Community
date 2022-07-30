@@ -121,4 +121,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         shoppingCart.getProducts().clear();
         shoppingCart.getEvents().clear();
     }
+    @Override
+    @Transactional
+    public void deleteAllShoppingCartItems(){
+        List <ShoppingCart> shoppingCarts = shoppingCartRepository.findAll();
+        shoppingCarts.forEach(shoppingCart -> {
+            shoppingCart.getEvents().clear();
+            shoppingCart.getProducts().clear();
+        });
+    }
 }

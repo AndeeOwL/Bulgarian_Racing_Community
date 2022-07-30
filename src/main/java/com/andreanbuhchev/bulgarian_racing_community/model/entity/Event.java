@@ -33,47 +33,53 @@ public class Event extends BaseEntity {
         return userEntity;
     }
 
-    public void setUserEntity(UserEntity userEntity) {
+    public Event setUserEntity(UserEntity userEntity) {
         this.userEntity = userEntity;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Event setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public Event setLocation(String location) {
         this.location = location;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public Event setDescription(String description) {
         this.description = description;
+        return this;
     }
 
     public LocalDate getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public Event setTime(LocalDate time) {
         this.time = time;
+        return this;
     }
 
     public float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public Event setPrice(float price) {
         this.price = price;
+        return this;
     }
 }

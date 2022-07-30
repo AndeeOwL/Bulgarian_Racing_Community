@@ -43,84 +43,94 @@ public class UserEntity extends BaseEntity {
     public UserEntity() {
     }
 
-    public List<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List<Event> events) {
-        this.events = events;
-    }
-
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public UserEntity setUsername(String username) {
         this.username = username;
+        return this;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public UserEntity setFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public UserEntity setLastName(String lastName) {
         this.lastName = lastName;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public UserEntity setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public UserEntity setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     public List<Vehicle> getVehicle() {
         return vehicle;
     }
 
-    public void setVehicle(List<Vehicle> vehicle) {
+    public UserEntity setVehicle(List<Vehicle> vehicle) {
         this.vehicle = vehicle;
+        return this;
     }
 
     public List<UserRoleEntity> getRole() {
         return role;
     }
 
-    public void setRole(List<UserRoleEntity> role) {
+    public UserEntity setRole(List<UserRoleEntity> role) {
         this.role = role;
+        return this;
     }
 
     public List<Article> getArticles() {
         return articles;
     }
 
-    public void setArticles(List<Article> articles) {
+    public UserEntity setArticles(List<Article> articles) {
         this.articles = articles;
+        return this;
     }
 
     public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public UserEntity setProducts(List<Product> products) {
         this.products = products;
+        return this;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public UserEntity setEvents(List<Event> events) {
+        this.events = events;
+        return this;
     }
 
     public String fullName() {

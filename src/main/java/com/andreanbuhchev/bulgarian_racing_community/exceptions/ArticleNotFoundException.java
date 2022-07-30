@@ -1,4 +1,4 @@
 package com.andreanbuhchev.bulgarian_racing_community.exceptions;
 
-public class ArticleNotFoundException extends RuntimeException {
+public class ArticleNotFoundException extends RuntimeException{
 }

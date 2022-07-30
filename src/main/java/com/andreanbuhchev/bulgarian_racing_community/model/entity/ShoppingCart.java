@@ -29,23 +29,26 @@ public class ShoppingCart extends BaseEntity {
         return userEntity;
     }
 
-    public void setUserEntity(UserEntity userEntity) {
+    public ShoppingCart setUserEntity(UserEntity userEntity) {
         this.userEntity = userEntity;
+        return this;
     }
 
     public List<Event> getEvents() {
         return events;
     }
 
-    public void setEvents(List<Event> events) {
+    public ShoppingCart setEvents(List<Event> events) {
         this.events = events;
+        return this;
     }
 
     public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public ShoppingCart setProducts(List<Product> products) {
         this.products = products;
+        return this;
     }
 }

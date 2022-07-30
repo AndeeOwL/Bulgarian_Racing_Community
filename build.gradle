@@ -8,11 +8,6 @@ group = 'com.AndreanBuhchev'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
 
 repositories {
     mavenCentral()
@@ -29,7 +24,13 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'mysql:mysql-connector-java'
-    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testRuntimeOnly 'org.hsqldb:hsqldb'
 
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
 }
 
