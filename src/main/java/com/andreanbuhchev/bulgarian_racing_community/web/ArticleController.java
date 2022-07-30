@@ -50,8 +50,8 @@ public class ArticleController {
 
     @PostMapping("/add")
     public String addArticle(@Valid ArticleDto addArticleModel,
+                             BindingResult bindingResult,
                              @AuthenticationPrincipal UserDetails userDetails,
-                           BindingResult bindingResult,
                            RedirectAttributes redirectAttributes
                            ) {
 
@@ -59,7 +59,7 @@ public class ArticleController {
             redirectAttributes.addFlashAttribute("addArticleModel", addArticleModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addArticleModel",
                     bindingResult);
-            return "redirect:/articles/add";  //TODO ARTICLES THROWING ERROR WHEN ADDED WITH EMPTY FIELDS
+            return "redirect:/articles/add";
         }
 
         articleService.addArticle(addArticleModel, userDetails);
@@ -77,7 +77,6 @@ public class ArticleController {
     }
 
     //TODO EDIT FETCH FOR COMMENTS NOT WORKING
-    //TODO BUTTON ARTICLES NOT DROPPING DOWN AT FIRST
 
 
 

@@ -19,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,8 +73,11 @@ public class UserServiceImpl implements UserService {
         admin.setUsername("andeeowl");
         admin.setEmail("andeeowl@yahoo.com");
         admin.setPassword(passwordEncoder.encode(adminPass));
-
         userRepository.save(admin);
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.setUserEntity(admin);
+        shoppingCartRepository.save(shoppingCart);
+
     }
 
     @Override
@@ -128,6 +132,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void addRoleToUser(Long id) {
 
         UserEntity user = userRepository.findById(id).orElseThrow();
@@ -140,6 +145,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(Long id) {
+
+        shoppingCartRepository.deleteById(id);
         userRepository.deleteById(id);
     }
 

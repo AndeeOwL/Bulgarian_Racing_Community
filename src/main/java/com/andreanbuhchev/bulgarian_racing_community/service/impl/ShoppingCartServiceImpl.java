@@ -9,10 +9,10 @@ import com.andreanbuhchev.bulgarian_racing_community.service.ShoppingCartService
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
@@ -67,30 +67,50 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Override
     public double totalSum(List<ShoppingCartView> products) {
 
-        double sum = products.stream().mapToDouble(ShoppingCartView::getPrice).sum();
+       return products.stream().mapToDouble(ShoppingCartView::getPrice).sum();
 
-        return sum;
     }
 
     @Override
     @Transactional
     public void deleteProduct(Long id,UserDetails userDetails) {
 
-        ShoppingCart shoppingCart = shoppingCartRepository.findByUserEntityUsername(userDetails.getUsername());
+         ShoppingCart shoppingCart = shoppingCartRepository.findByUserEntityUsername(userDetails.getUsername());
 
-        List<ShoppingCartView> products = findAll(userDetails);
+         List<ShoppingCartView> products = findAll(userDetails);
 
-        ShoppingCartView shoppingCartView = products.get(Math.toIntExact(id) - 1);
+         AtomicReference<ShoppingCartView> shoppingCartView = new AtomicReference<>(new ShoppingCartView());
 
-        if (shoppingCartView.getType().equals("event")){
-            shoppingCart.getEvents().remove(id-1);
-        } else if (shoppingCartView.getType().equals("product")) {
-            shoppingCart.getProducts().remove(id-1);
-        }
+         products.forEach(p -> {
+             if (p.getId().equals(id)) {
+                 shoppingCartView.set(p);
+             }
+         });
 
-        //TODO METHOD NOT REMOVING ! CORRECT ID AND INDEXES !
+         if (shoppingCartView.get().getType().equals("event")){
 
-    }
+             var eventToRemove = shoppingCart.
+                     getEvents().
+                     stream().
+                     filter(e -> id.equals(e.getId())).
+                     toList();
+
+             shoppingCart.getEvents().removeAll(eventToRemove);
+             shoppingCartRepository.save(shoppingCart);
+
+         } else if (shoppingCartView.get().getType().equals("product")) {
+
+             var productToRemove = shoppingCart.
+                     getProducts().
+                     stream().
+                     filter(e -> id.equals(e.getId())).
+                     toList();
+
+             shoppingCart.getProducts().removeAll(productToRemove);
+             shoppingCartRepository.save(shoppingCart);
+
+         }
+     }
 
     @Override
     @Transactional
