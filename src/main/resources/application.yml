@@ -2,7 +2,7 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect: PostgreSQLDialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: 'TRUE'
     hibernate:
       ddl-auto: update
