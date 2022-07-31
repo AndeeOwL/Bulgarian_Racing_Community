@@ -2,7 +2,7 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: PostgreSQLDialect
         format_sql: 'TRUE'
     hibernate:
       ddl-auto: update
@@ -15,10 +15,14 @@ spring:
     init:
       mode: never
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    password: 'Metalgearsolid95a'
-    username: 'root'
-    url: "jdbc:mysql://localhost:3306/bulgarian_racing_comunity?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC"
+    driverClassName: org.postgresql.Driver
+    password: ${JDBC_DATABASE_PASSWORD:}
+    username: ${JDBC_DATABASE_USERNAME:}
+
+    url: ${JDBC_DATABASE_URL:}
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
 logging:
   level:
     org:
@@ -29,4 +33,4 @@ logging:
       nodeValue: WARN
     blog: WARN
 server:
-  port: 8080
+  port: ${PORT:8080}
