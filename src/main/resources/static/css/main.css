@@ -186,3 +186,11 @@ form.main-form {
     margin-bottom: 5%;
     color: white;
 }
+
+.error-handler {
+    background-color: #1b252e;
+    color: white;
+    text-align: center;
+    margin-top: 10%;
+
+}

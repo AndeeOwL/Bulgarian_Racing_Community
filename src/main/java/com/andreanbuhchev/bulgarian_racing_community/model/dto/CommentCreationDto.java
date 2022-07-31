@@ -15,23 +15,26 @@ public class CommentCreationDto {
         return username;
     }
 
-    public void setUsername(String username) {
+    public CommentCreationDto setUsername(String username) {
         this.username = username;
+        return this;
     }
 
     public Long getArticleId() {
         return articleId;
     }
 
-    public void setArticleId(Long articleId) {
+    public CommentCreationDto setArticleId(Long articleId) {
         this.articleId = articleId;
+        return this;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public CommentCreationDto setMessage(String message) {
         this.message = message;
+        return this;
     }
 }

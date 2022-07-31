@@ -51,111 +51,125 @@ public class VehicleDto {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public VehicleDto setBrand(String brand) {
         this.brand = brand;
+        return this;
     }
 
     public String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
+    public VehicleDto setModel(String model) {
         this.model = model;
+        return this;
     }
 
     public LocalDate getYearOfProduction() {
         return yearOfProduction;
     }
 
-    public void setYearOfProduction(LocalDate yearOfProduction) {
+    public VehicleDto setYearOfProduction(LocalDate yearOfProduction) {
         this.yearOfProduction = yearOfProduction;
+        return this;
     }
 
     public int getHp() {
         return hp;
     }
 
-    public void setHp(int hp) {
+    public VehicleDto setHp(int hp) {
         this.hp = hp;
+        return this;
     }
 
     public int getEngineSize() {
         return engineSize;
     }
 
-    public void setEngineSize(int engineSize) {
+    public VehicleDto setEngineSize(int engineSize) {
         this.engineSize = engineSize;
+        return this;
     }
 
     public int getNm() {
         return nm;
     }
 
-    public void setNm(int nm) {
+    public VehicleDto setNm(int nm) {
         this.nm = nm;
+        return this;
     }
 
     public String getEngineType() {
         return engineType;
     }
 
-    public void setEngineType(String engineType) {
+    public VehicleDto setEngineType(String engineType) {
         this.engineType = engineType;
+        return this;
     }
 
     public String getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(String vehicleType) {
+    public VehicleDto setVehicleType(String vehicleType) {
         this.vehicleType = vehicleType;
+        return this;
     }
 
     public float getQuarterMileStanding() {
         return quarterMileStanding;
     }
 
-    public void setQuarterMileStanding(float quarterMileStanding) {
+    public VehicleDto setQuarterMileStanding(float quarterMileStanding) {
         this.quarterMileStanding = quarterMileStanding;
+        return this;
     }
 
     public float getMileStanding() {
         return mileStanding;
     }
 
-    public void setMileStanding(float mileStanding) {
+    public VehicleDto setMileStanding(float mileStanding) {
         this.mileStanding = mileStanding;
+        return this;
     }
 
     public float getZeroToHundred() {
         return zeroToHundred;
     }
 
-    public void setZeroToHundred(float zeroToHundred) {
+    public VehicleDto setZeroToHundred(float zeroToHundred) {
         this.zeroToHundred = zeroToHundred;
+        return this;
     }
 
     public int getTopSpeed() {
         return topSpeed;
     }
 
-    public void setTopSpeed(int topSpeed) {
+    public VehicleDto setTopSpeed(int topSpeed) {
         this.topSpeed = topSpeed;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public VehicleDto setDescription(String description) {
         this.description = description;
+        return this;
     }
 
     public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public VehicleDto setPhoto(String photo) {
         this.photo = photo;
+        return this;
     }
 }

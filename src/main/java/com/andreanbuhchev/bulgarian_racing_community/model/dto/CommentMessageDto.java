@@ -14,7 +14,8 @@ public class CommentMessageDto {
         return message;
     }
 
-    public void setMessage(String message) {
+    public CommentMessageDto setMessage(String message) {
         this.message = message;
+        return this;
     }
 }

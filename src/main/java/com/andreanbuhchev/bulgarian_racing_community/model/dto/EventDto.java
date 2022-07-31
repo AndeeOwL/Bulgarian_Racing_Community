@@ -31,39 +31,44 @@ public class EventDto {
         return name;
     }
 
-    public void setName(String name) {
+    public EventDto setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public EventDto setLocation(String location) {
         this.location = location;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public EventDto setDescription(String description) {
         this.description = description;
+        return this;
     }
 
     public LocalDate getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public EventDto setTime(LocalDate time) {
         this.time = time;
+        return this;
     }
 
     public float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public EventDto setPrice(float price) {
         this.price = price;
+        return this;
     }
 }

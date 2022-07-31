@@ -31,6 +31,7 @@ public class ArticleServiceImpl implements ArticleService {
         this.commentRepository = commentRepository;
     }
 
+
     @Override
     public void addArticle(ArticleDto articleDto, UserDetails userDetails) {
 
@@ -41,7 +42,6 @@ public class ArticleServiceImpl implements ArticleService {
 
         modelMapper.map(articleDto,newArticle);
         newArticle.setUserEntity(user);
-
 
 
         articleRepository.save(newArticle);

@@ -22,31 +22,35 @@ public class ProductDto {
         return name;
     }
 
-    public void setName(String name) {
+    public ProductDto setName(String name) {
         this.name = name;
+        return this;
     }
 
     public float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public ProductDto setPrice(float price) {
         this.price = price;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public ProductDto setDescription(String description) {
         this.description = description;
+        return this;
     }
 
     public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public ProductDto setPhoto(String photo) {
         this.photo = photo;
+        return this;
     }
 }

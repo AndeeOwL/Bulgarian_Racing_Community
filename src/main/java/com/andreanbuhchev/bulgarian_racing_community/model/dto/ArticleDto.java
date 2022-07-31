@@ -19,23 +19,26 @@ public class ArticleDto {
         return id;
     }
 
-    public void setId(Long id) {
+    public ArticleDto setId(Long id) {
         this.id = id;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
+        return this;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public ArticleDto setTitle(String title) {
         this.title = title;
+        return this;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public ArticleDto setText(String text) {
+        this.text = text;
+        return this;
     }
 }
