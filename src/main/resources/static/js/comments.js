@@ -1,5 +1,5 @@
-const articleId = document.getElementById('articleId').value
-const commentForm = document.getElementById('commentForm')
+articleId = document.getElementById('articleId').value
+commentForm = document.getElementById('commentForm')
 commentForm.addEventListener("submit", handleFormSubmission)
 
 const csrfHeaderName = document.head.querySelector('[name=_csrf_header]').content
